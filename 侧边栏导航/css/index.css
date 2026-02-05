@@ -1,0 +1,74 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7284a7;
+}
+ul{
+    list-style: none;
+}
+nav{
+    /* 固定定位 */
+    position: fixed;
+    width: 300px;
+    height: 650px;
+    left: 0;
+    background-color: #ffbb00;
+    border-radius: 20px 20px 20px 0px;
+}
+.menus{
+    /* 垂直居中 */
+    margin: 50px 0;
+    color: #fff;
+}
+.li{
+    letter-spacing: 2px;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 16px 0;
+    /* 动画过渡 */
+    transition: 0.3s;
+}
+.menus li:hover{
+    background-color: #ae00ff;
+}
+.li .fa{
+    font-size: 20px;
+    width: 50px;
+    height: 20px;
+    text-align: center;
+    margin-left: 5px;
+}
+.li ul{
+    border-radius: 20px;
+    width: 0;
+    height: 550px;
+    padding: 50px 0;
+    background-color: #a06993;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    transition: 0.3s;
+}
+.li ul li{
+    padding: 16px 24px;
+    /* 文字禁止换行 */
+    white-space: nowrap;
+    transition: 0.3s;
+}
+.li:hover ul{
+    border-radius: 20px;
+    width: 250px;
+}
+.li ul li:hover{
+    background-color: #c28fb4;
+}
