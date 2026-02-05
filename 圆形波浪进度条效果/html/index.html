@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圆形波浪进度条效果</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <!-- 圆形波浪进度条外层元素 -->
+  <div class="progress-box">
+    <!-- 波浪效果元素 设置了一个css变量  -->
+    <div class="progress" style="--progress: 0%"></div>
+    <!-- 进度数字 -->
+    <p class="number">0%</p>
+  </div>
+</body>
+<script src="../js/index.js"></script>
+</html>
+
+
+
+
+
+
+
+<!-- 
+实现思路：
+这个样式效果看似很简单，实际上实现起来一点也不难。主要是思路：
+1.外层父元素通过border-radius，变成圆形，并设置其position: ralative;和overflow: hidden;，使其内部超出的部分被隐藏。
+
+2.在内部创建一个子元素，作为实现波浪效果的元素，设置其宽高为父元素的两倍，并通过border-radius设置其圆角。
+
+3.给该子元素设置一个旋转动画，使其循环播放，一直旋转。并通过position: absolute;使子元素的顶部对齐父元素的底部。
+
+4.设置一个CSS自定义属性--progress，通过top: calc(100% - var(--progress));控制子元素的在Y轴上的移动。在JS中可以通过控制--progress的数值，来控制子元素向上移动距离，从而表现整体进度的百分比。由于父元素设置了overflow: hidden;，所以在子元素旋转上移的过程中，只有一部分内容能在父元素中显示出来。再加上子元素的旋转+圆角样式，就形成了波浪的效果。
+
+5.再创建一个子元素，内部文本显示进度的百分比数字，该子元素同样通过absolute进行绝对定位，使其位于父元素中间，并且z-index的层级大于上面的波浪元素。
+-->

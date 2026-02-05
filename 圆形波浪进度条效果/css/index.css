@@ -1,0 +1,52 @@
+ /* 定一个旋转动画 用于实现波浪效果 */
+ @keyframes progressRotate {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* 设置外层元素样式 */
+  .progress-box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #000;
+    /* 最关键的属性 */
+    overflow: hidden;
+  }
+
+  /* 设置进度条样式 */
+  .progress {
+    position: absolute;
+    /* 波浪占据外层圆形区域的百分比 由 --progress控制 */
+    top: calc(100% - var(--progress));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+    width: 200%;
+    height: 200%;
+    border-radius: 34%;
+    background: #430f0f;
+    /* 添加旋转动画效果 */
+    animation: progressRotate 2.5s linear infinite;
+    /* 由于上面使用了transform 且动画中也使用了transform 设置该属性使其叠加生效 */
+    animation-composition: add;
+  }
+
+  /* 设置进度数字样式 */
+  .number {
+    position: absolute;
+    color:gray;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    margin: 0;
+    font-size: 24px;
+  }
